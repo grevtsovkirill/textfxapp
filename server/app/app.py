@@ -10,20 +10,12 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-TXT = [{
-        'in_text': 'place text here'
-    }]
-
 
 @app.route("/", methods=['GET','POST'])
 def hello():
-    response_object = {'status': 'success'}
-    if request.method == 'POST':
-        post_data = request.get_json()
-        TXT.append({'in_text': post_data.get('in_text')})
-    else:
-        response_object['msg'] = TXT
-    return jsonify(response_object)
+    data = request.data
+    return data
+
     # return "Hello, World!"
 
 
