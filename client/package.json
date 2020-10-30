@@ -10,7 +10,11 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.18.1",
+    "eslint-loader": "^2.2.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
