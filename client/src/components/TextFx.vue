@@ -14,9 +14,10 @@
           <tbody>
 
             <td> <input v-model="in_message">
-            <button v-on:click="sendAddress()">Send</button>
+            <button v-on:click="sendMSG()">Send</button>
             </td>
-            <td> {{in_message}} </td>
+            <td> <input v-model="out_message">
+            <button v-on:click="getBack()">Get</button></td>
           </tbody>
     </table>
     </div>
@@ -33,12 +34,24 @@ export default {
     return {
       msg1: 'Text',
       in_message: 'sd',
+      out_message: '',
     };
   },
   methods: {
-    sendAddress() {
+    sendMSG() {
       const path = 'http://127.0.0.1:5000/';
       return axios.post(path, this.in_message);
+    },
+    getBack() {
+      const path = 'http://127.0.0.1:5000/';
+      axios.get(path)
+        .then((res) => {
+          this.out_message = res.data.txt;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+        });
     },
   },
 
