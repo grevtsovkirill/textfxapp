@@ -9,19 +9,20 @@ app.config.from_object(__name__)
 
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-VAR = []
+VAR = ''
 
 @app.route("/", methods=['GET','POST'])
 def hello():
+    global VAR
     response_object = {'status': 'success'}
     if request.method == 'POST':
         data = request.get_data()
         msg = data.decode("utf-8")
         var = msg + " - 1"
+        VAR = var
         print(var)
-        response_object['txt'] = var
     else:
-        response_object['txt'] = '0'
+        response_object['txt'] = VAR
     print(response_object)
     return response_object
 
