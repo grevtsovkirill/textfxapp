@@ -32,12 +32,12 @@ export default {
   data() {
     return {
       msg1: 'Text',
-      in_message: '',
+      in_message: 'sd',
     };
   },
   methods: {
     sendAddress() {
-      const path = 'http://localhost:5000/';
+      const path = 'http://127.0.0.1:5000/';
       return axios.post(path, this.in_message);
     },
   },
