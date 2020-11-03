@@ -13,7 +13,9 @@
           </thead>
           <tbody>
 
-            <td> <input v-model="in_message"> </td>
+            <td> <input v-model="in_message">
+            <button v-on:click="sendAddress()">Send</button>
+            </td>
             <td> {{in_message}} </td>
           </tbody>
     </table>
@@ -23,7 +25,7 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'TextFx',
@@ -33,5 +35,12 @@ export default {
       in_message: '',
     };
   },
+  methods: {
+    sendAddress() {
+      const path = 'http://localhost:5000/';
+      return axios.post(path, this.in_message);
+    },
+  },
+
 };
 </script>
