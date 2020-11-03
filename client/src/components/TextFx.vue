@@ -14,10 +14,9 @@
           <tbody>
 
             <td> <input v-model="in_message">
-            <button v-on:click="sendMSG()">Send</button>
+            <button v-on:click="sendMSG();getBack();">Send</button>
             </td>
-            <td> <input v-model="out_message">
-            <button v-on:click="getBack()">Get</button></td>
+            <td> {{out_message}} </td>
           </tbody>
     </table>
     </div>
