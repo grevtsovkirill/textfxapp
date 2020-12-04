@@ -19,6 +19,13 @@
             <td> {{out_message}} </td>
           </tbody>
     </table>
+    <div class="imgContent">
+      <div class="imagePreview">
+        <img :src="uploadedImage" style="width:100%;" />
+      </div>
+        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+        <button v-on:click="submitFile()">Submit</button>
+    </div>
     </div>
   </div>
   </div>
@@ -34,6 +41,7 @@ export default {
       msg1: 'Text',
       in_message: 'sd',
       out_message: '',
+      file: '',
     };
   },
   methods: {
@@ -52,7 +60,8 @@ export default {
           console.error(error);
         });
     },
+    handleFileUpload() {
+    },
   },
-
 };
 </script>
