@@ -3,15 +3,24 @@ try:
 except ImportError:
     import Image
 import pytesseract
+import re
 
+
+def proc_newlines(instr):
+    instr = instr.replace('-\n', '')
+    instr = re.sub(r"(?<!\n)\n(?!\n)", " ", instr)
+    return instr    
 
 def get_text(fname):
     intext = pytesseract.image_to_string(Image.open(fname), lang='deu')
+    intext = proc_newlines(intext)
     return intext
 
 def main():
     print("proc pic")
-    print(get_text(fname))
+    output = get_text(fname)
+    print(output)
+    # print(repr(output))
 
 if __name__ == "__main__":
     import argparse
